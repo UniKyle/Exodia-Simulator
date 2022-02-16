@@ -7,4 +7,4 @@ Random ideas:
 - what cards are the best to get in your opening hand?
 - what's the best order to play your cards in?
 - possibly get a win% for every opening hand?
-- 
+- test change
