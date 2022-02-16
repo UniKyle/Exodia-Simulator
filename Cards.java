@@ -4,8 +4,4 @@ public enum Cards {
     WHITE_STONE, LIBRARY, TOON_DRA, UPSTART, TOON_TABLE, TERRAFORMING, 
     DEALINGS, TRADE_IN, CARDS_OF_CONSONANCE, VOID, POT, ONE_DAY, 
     PSUEDO_SPACE, CHICKEN_GAME;
-    
-    public enum OneOfs {
-        RIGHT_ARM;
-    }
 }
