@@ -1,25 +1,21 @@
-import java.text.CompactNumberFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
-import Cards.OneOfs;
+//import Cards.OneOfs;
 
 /**
  * Simulates games of Exodia and records data on games played, such as
  * win percentage, best cards in opening hands, etc.
  */
 public class Simulator {
-  ArrayList<Card> deck, hand, graveyard;
+  List<Card> deck, hand, graveyard;
 
-  public Simulator(ArrayList<Card> deck) {
+  public Simulator(List<Card> deck) {
       this.deck = deck;
+      this.hand = new ArrayList<>();
       this.draw(5);
       this.graveyard = new ArrayList<Card>();
   }
   
-
   //removes card from deck and adds to hand numCards times
   public void draw(int numCards) {
       Random r = new Random();
@@ -34,25 +30,50 @@ public class Simulator {
       }
   }
 
+  //removes lowest value cards from the hand
+  public void discard(int numCards) {
+
+  }
+
+  //plays card if their conditions are met
+  public void play(Card c) {
+    String name = c.getName();
+    if (name == "upstart" || name == "one_day" || name == "chicken_game") {
+      draw(1);
+      graveyard.add(c);
+    }
+    else if (name == "library") {
+
+    }
+    else if (name == "toon_table") {
+
+    }
+    else if (name == "terraforming") {
+
+    }
+    else if (name == "trade_in" || name == "consonance") {
+
+    }
+    else if (name == "void") {
+
+    }
+    else if (name == "pot") {
+
+    }
+    else if (name == "pseudo_space") {
+
+    }
+  }
+
   public static void main(String[] args) {
     //initialize deck list
-    ArrayList<Card> deckList = new ArrayList<Card>();
-    //names of cards with 1x copy in the deck
-    String[] oneOfs = new String[]{"right_leg", "left_leg", "right_arm", "left_arm",
-    "forbidden_one", "toon_dra", "terraforming", "pot", "one_day"};
-    //names of cards with 2x copies in the deck
-    String[] twoOfs = new String[]{"blue_eyes", "cards_of_consonance"};
-    //names of cards with 3x copies in the deck
-    String[] threeOfs = new String[]{"white_stone", "library", "upstart", "toon_table",
-    "dealings", "trade_in", "void", "psuedo_space", "chicken_game"};
+    List<Card> deck = new ArrayList<Card>();
+    deck = Card.initDeck();
+    Simulator s = new Simulator(deck);
 
-    Card c;
-    //add one-ofs to deck list
-    for (String name : oneOfs) {
-      c = new CompactNumberFormat(decimalPattern, symbols, compactPatterns, pluralRules))
-      deckList.add(c);
+    for (Card c : s.hand) {
+      System.out.println(c.getName());
     }
-    Simulator exodia = new Simulator()
     
   }
 }

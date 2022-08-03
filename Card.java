@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Card class for use in Simulator. Contains information about cards such as
  * how many cards they draw, how many cards are discarded, special conditions
@@ -25,8 +27,8 @@ public class Card {
         return this.name;
     }
 
-    public Card[] initDeck() {
-        Card[] deck;
+    public static List<Card> initDeck() {
+        List<Card> deck = new ArrayList<>();
         //c1-c5 exodia pieces
         Card c1 = new Card("right_leg", 0, 0);
         Card c2 = new Card("left_leg", 0, 0);
@@ -34,17 +36,38 @@ public class Card {
         Card c4 = new Card("left_arm", 0, 0);
         Card c5 = new Card("forbidden_one", 0, 0);
         Card c6 = new Card("blue_eyes", 0, 0);
-        Card c7 = new Card("toon_dra", 0, 0);
-        Card c8 = new Card("upstart", 1, 0);
-        Card c9 = new Card("upstart", 1, 0);
+        Card c7 = new Card("white_stone", 0, 0);
+        Card c8 = new Card("library", 0, 0);
+        Card c9 = new Card("toon_dra", 0, 0);
         Card c10 = new Card("upstart", 1, 0);
-        return deck;
-        String[] oneOfs = new String[]{ , "toon_dra", "terraforming", "pot", "one_day"};
+        Card c11 = new Card("toon_table", 0, 0);
+        Card c12 = new Card("terraforming", 0, 0);
+        Card c13 = new Card("dealings", 1, 1);
+        Card c14 = new Card("trade_in", 2, 0);
+        Card c15 = new Card("consonance", 2, 0);
+        Card c16 = new Card("void", 1, 0);
+        Card c17 = new Card("pot", 1, 0);
+        Card c18 = new Card("one_day", 1, 0);
+        Card c19 = new Card("psuedo_space", 1, 0);
+        Card c20 = new Card("chicken_game", 1, 0);
+
+        
+        Card[] oneOfs = new Card[]{c1, c2, c3, c4, c5, c9, c12, c17, c18};
         //names of cards with 2x copies in the deck
-        String[] twoOfs = new String[]{"blue_eyes", "cards_of_consonance"};
+        Card[] twoOfs = new Card[]{c6, c15};
         //names of cards with 3x copies in the deck
-        String[] threeOfs = new String[]{"white_stone", "library", "upstart", "toon_table",
-        "dealings", "trade_in", "void", "psuedo_space", "chicken_game"};
+        Card[] threeOfs = new Card[]{c7, c8, c10, c11, c13, c14, c16, c19, c20};
+        for (Card c : oneOfs) {
+            deck.add(c);
+        }
+        for (Card c : twoOfs) {
+            deck.add(c);
+        }
+        for (Card c : threeOfs) {
+            deck.add(c);
+        }
+        Collections.shuffle(deck);
+        return deck;
     }
 
 }
