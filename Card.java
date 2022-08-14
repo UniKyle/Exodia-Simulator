@@ -27,6 +27,14 @@ public class Card {
         return this.name;
     }
 
+    public boolean equals(Object obj) {
+        if (obj==null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Card)) return false;
+        Card c = (Card) obj;
+        return this.name == c.name;
+    }
+
     public static List<Card> initDeck() {
         List<Card> deck = new ArrayList<>();
         //c1-c5 exodia pieces
@@ -62,8 +70,11 @@ public class Card {
         }
         for (Card c : twoOfs) {
             deck.add(c);
+            deck.add(c);
         }
         for (Card c : threeOfs) {
+            deck.add(c);
+            deck.add(c);
             deck.add(c);
         }
         Collections.shuffle(deck);
@@ -73,3 +84,6 @@ public class Card {
 }
 //TODO: account for special card behavior (dual pot, white stone, toon table,
 //psuedospace, etc)
+//put more in the card class, less in simulator?
+    //draw with condition as a method
+    //all special card behavior = different method?
