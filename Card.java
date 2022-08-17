@@ -7,10 +7,18 @@ import java.util.*;
  */
 public class Card {
     String name;
+    //how many cards this card draws/discards when played
     int draw, discard;
+    //priority in which to play/discard this card, lower value -> higher priority
+    int playPrio, discardPrio;
+    //name of the card this card requires to be played
     String requires;
 
-
+    public Card(String name) {
+        this.name = name;
+        this.draw = 0;
+        this.discard = 0;
+    }
     public Card(String name, int draw, int discard) {
         this.name = name;
         this.draw = draw;
@@ -27,6 +35,13 @@ public class Card {
         return this.name;
     }
 
+    public void setPlayPrio(int n) {
+        this.playPrio = n;
+    }
+    public void setDiscardPrio(int n) {
+        this.discardPrio = n;
+    }
+
     public boolean equals(Object obj) {
         if (obj==null) return false;
         if (obj == this) return true;
@@ -38,18 +53,18 @@ public class Card {
     public static List<Card> initDeck() {
         List<Card> deck = new ArrayList<>();
         //c1-c5 exodia pieces
-        Card c1 = new Card("right_leg", 0, 0);
-        Card c2 = new Card("left_leg", 0, 0);
-        Card c3 = new Card("right_arm", 0, 0);
-        Card c4 = new Card("left_arm", 0, 0);
-        Card c5 = new Card("forbidden_one", 0, 0);
-        Card c6 = new Card("blue_eyes", 0, 0);
-        Card c7 = new Card("white_stone", 0, 0);
-        Card c8 = new Card("library", 0, 0);
-        Card c9 = new Card("toon_dra", 0, 0);
+        Card c1 = new Card("right_leg");
+        Card c2 = new Card("left_leg");
+        Card c3 = new Card("right_arm");
+        Card c4 = new Card("left_arm");
+        Card c5 = new Card("forbidden_one");
+        Card c6 = new Card("blue_eyes");
+        Card c7 = new Card("white_stone");
+        Card c8 = new Card("library");
+        Card c9 = new Card("toon_dra");
         Card c10 = new Card("upstart", 1, 0);
-        Card c11 = new Card("toon_table", 0, 0);
-        Card c12 = new Card("terraforming", 0, 0);
+        Card c11 = new Card("toon_table");
+        Card c12 = new Card("terraforming");
         Card c13 = new Card("dealings", 1, 1);
         Card c14 = new Card("trade_in", 2, 0);
         Card c15 = new Card("consonance", 2, 0);
