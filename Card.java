@@ -71,7 +71,7 @@ public class Card {
         Card c16 = new Card("void", 1, 0);
         Card c17 = new Card("pot", 1, 0);
         Card c18 = new Card("one_day", 1, 0);
-        Card c19 = new Card("psuedo_space", 1, 0);
+        Card c19 = new Card("pseudo_space", 1, 0);
         Card c20 = new Card("chicken_game", 1, 0);
 
         

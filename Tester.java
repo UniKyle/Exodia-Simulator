@@ -41,4 +41,18 @@ public class Tester {
         assertTrue(s.hand.contains(testCard));
         assertEquals(34, s.deck.size());
     }
+
+    @Test
+    public void testToonTable() {
+        Card testCard = new Card("toon_table");
+        s.tutor(testCard);
+        s.tutor(testCard);
+        s.play(testCard);
+        assertTrue(s.hand.size()==7);
+        assertTrue(s.hand.contains(testCard));
+        assertEquals(9, testCard.playPrio);
+        assertTrue(!s.deck.contains(testCard));
+        assertTrue(s.containsName("toon_dra", s.hand));
+    }
+
 }
